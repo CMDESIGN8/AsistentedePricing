@@ -1,0 +1,539 @@
+/* Step2RouteTransport.module.css */
+:root {
+    /* Colores principales */
+    --side: #161b22;
+    --accent: #00f2ff;
+    --text: #c9d1d9;
+    --muted: #8b949e;
+    --border: #30363d;
+    --success: #238636;
+    --warning: #d29922;
+    --danger: #da3633;
+    --terminal: #0a0e14;
+
+    --primary: #00f2ff;
+    --primary-dark: #00f2ff;
+    --primary-light: #0d1117;
+    --primary-rgb: 67, 97, 238;
+    
+    --success: #06d6a0;
+    --success-dark: #238636;
+    --success-light: #d4f4e9;
+    --success-rgb: 6, 214, 160;
+    
+    --danger: #ef476f;
+    --warning: #ffd166;
+    --info: #118ab2;
+
+    --bg: #0d1117;
+    --side: #161b22;
+    --accent: #00f2ff;
+    --text: #c9d1d9;
+    --muted: #8b949e;
+    --border: #30363d;
+    --warning: #d29922;
+    --terminal: #0a0e14;
+    
+    /* Espaciado */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    
+    /* Bordes */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    
+    /* Transiciones */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition-slow: 350ms ease;
+}
+
+/* Step2RouteTransport.module.css */
+
+/* Contenedor principal */
+.step2Container {
+  min-height: 100vh;
+  background: var(--bg);
+  animation: fadeIn var(--transition-slow) ease-out;
+  color: var(--text);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+.step2Header {
+  background: var(--side);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  padding: var(--space-lg) 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(22, 27, 34, 0.95);
+}
+
+.headerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent) 0%, #00d4e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.025em;
+  position: relative;
+}
+
+.headerTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #00d4e0);
+  border-radius: 2px;
+}
+
+.stepIndicator {
+  background: var(--accent);
+  color: var(--bg);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  transition: all var(--transition-normal);
+}
+
+.stepIndicator:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenido principal */
+.step2Main {
+  max-width: 1200px;
+  margin: var(--space-xl) auto;
+  padding: 0 var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* Secciones */
+.section {
+  background: var(--side);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.section:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--border);
+  transition: all var(--transition-normal);
+}
+
+.incotermsSection::before {
+  background: linear-gradient(to bottom, #8b5cf6, #6366f1);
+}
+
+.maritimoSection::before {
+  background: linear-gradient(to bottom, #0ea5e9, var(--accent));
+}
+
+.aereoSection::before {
+  background: linear-gradient(to bottom, var(--warning), #f97316);
+}
+
+.terrestreSection::before {
+  background: linear-gradient(to bottom, var(--success), #059669);
+}
+
+.section:hover::before {
+  width: 6px;
+}
+
+/* Títulos de sección */
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  position: relative;
+  padding-bottom: var(--space-sm);
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.2;
+  border-radius: 1px;
+}
+
+.optionalBadge {
+  font-size: 0.75rem;
+  background: linear-gradient(135deg, var(--bg), rgba(48, 54, 61, 0.5));
+  color: var(--muted);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-lg);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--border);
+  transition: all var(--transition-normal);
+}
+
+.section:hover .optionalBadge {
+  transform: translateY(-1px);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Grid de formulario */
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+/* Grupos de formulario */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.formLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.formLabel::before {
+  content: '→';
+  color: var(--accent);
+  opacity: 0.6;
+  transition: transform var(--transition-fast);
+}
+
+.formGroup:focus-within .formLabel::before {
+  transform: translateX(2px);
+  opacity: 1;
+}
+
+/* Inputs y selects */
+.formInput,
+.formSelect {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: var(--text);
+  background: var(--bg);
+  transition: all var(--transition-normal);
+  outline: none;
+}
+
+.formInput:hover,
+.formSelect:hover {
+  border-color: var(--accent);
+}
+
+.formInput:focus,
+.formSelect:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 242, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.formInput::placeholder {
+  color: var(--muted);
+  opacity: 0.6;
+}
+
+/* Inputs específicos por sección */
+.maritimoInput:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 242, 255, 0.1);
+}
+
+.aereoInput:focus {
+  border-color: var(--warning);
+  box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.1);
+}
+
+.terrestreInput:focus {
+  border-color: var(--success);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Grid de transbordos */
+.transbordosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+
+/* Texto de ayuda */
+.helpText {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.4;
+  animation: fadeInHelp var(--transition-fast) ease-out;
+}
+
+@keyframes fadeInHelp {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Navegación */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-xl) 0;
+  margin-top: var(--space-md);
+  border-top: 1px solid var(--border);
+}
+
+.button {
+  padding: 0.875rem 1.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.button:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+.buttonBack {
+  background: var(--side);
+  color: var(--muted);
+  border: 2px solid var(--border);
+}
+
+.buttonBack:hover {
+  background: var(--bg);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateX(-2px);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.buttonNext {
+  background: linear-gradient(135deg, var(--accent) 0%, #00d4e0 100%);
+  color: var(--bg);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.buttonNext:hover {
+  transform: translateX(2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #00d4e0 0%, var(--accent) 100%);
+}
+
+/* Efectos de entrada para secciones condicionales */
+.maritimoSection,
+.aereoSection,
+.terrestreSection {
+  animation: slideInUp var(--transition-normal) ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .headerContent {
+    flex-direction: column;
+    gap: var(--space-md);
+    text-align: center;
+  }
+  
+  .headerTitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .transbordosGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .navigation {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .section {
+    padding: var(--space-lg);
+  }
+}
+
+@media (max-width: 640px) {
+  .step2Main {
+    padding: 0 var(--space-md);
+  }
+  
+  .headerContent {
+    padding: 0 var(--space-md);
+  }
+  
+  .headerTitle {
+    font-size: 1.5rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* Efectos de focus mejorados */
+.formInput:focus-visible,
+.formSelect:focus-visible,
+.button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Scroll suave en la página */
+.step2Container {
+  scroll-behavior: smooth;
+}
+
+/* Efecto de brillo en hover para botones */
+.buttonNext::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.buttonNext:hover::before {
+  left: 100%;
+}
+
+/* Ajustes para select */
+.formSelect {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%238b949e'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+.formSelect:hover {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2300f2ff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.formSelect:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2300f2ff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+}
